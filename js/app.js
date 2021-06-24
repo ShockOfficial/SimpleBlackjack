@@ -15,7 +15,7 @@ const blackJackGame = {
     user: { side: '.user-box', score: 0, scoreDisplay: '#my-score', points: 0, pointsDisplay: '.value-user' },
     bot: { side: '.bot-box', score: 0, scoreDisplay: '#bot-score', points: 0, pointsDisplay: '.value-bot' },
     isStand: false,
-    cards: ['2.png', '3.png', '4.png', '5.jpg', '6.png', '7.png', '8.png', '9.png', '10.png', 'A.png', 'J.png', 'K.png', 'Q.png'],
+    cards: ['2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', 'A.png', 'J.png', 'K.png', 'Q.png'],
     cardsValue: { '2.png': 2, '3.png': 3, '4.png': 4, '5.jpg': 5, '6.png': 6, '7.png': 7, '8.png': 8, '9.png': 9, '10.png': 10, 'A.png': [1, 11], 'J.png': 10, 'K.png': 10, 'Q.png': 10 }
 }
 
