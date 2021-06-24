@@ -1,0 +1,251 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('https://wallpaperaccess.com/full/2434380.jpg');
+    /* background-image: url('https://static.vecteezy.com/system/resources/previews/000/834/558/non_2x/3d-cube-golden-box-abstract-background-vector.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+body::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4)
+}
+
+.game-box {
+    background-color: var(--box-bg);
+    height: 100vh;
+    width: 750px;
+    box-shadow: 10px 15px 15px rgba(0, 0, 0, .15);
+    display: grid;
+    grid-template-rows: 1fr 70% 15%;
+    grid-template-columns: repeat(8, 1fr);
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url('../images/bgjpg.jpg');
+    z-index: 20;
+}
+
+.title-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffb142;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: rgba(0, 0, 0, .5);
+    border-bottom: 3px solid #f7b21f;
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    grid-row: 1/2;
+    grid-column: 1 /-1;
+}
+
+.score-box {
+    position: relative;
+    grid-row: 3/4;
+    grid-column: 1/ -1;
+    border-top: 3px solid #f7b21f;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.value-box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: #f7b21f;
+    border-radius: 5px;
+    text-shadow: 3px 2px 1px rgba(44, 44, 84, .9);
+    background-color: rgba(0, 0, 0, .5);
+    width: 80px;
+    height: 80px;
+}
+
+.value-box-user {
+    left: 0;
+    top: -90px;
+}
+
+.value-box-bot {
+    right: 0;
+    top: -90px;
+}
+
+.value-info {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
+.user-box,
+.bot-box {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2.5rem;
+    grid-row: 2/3;
+    grid-column: 1/5;
+    border-right: 2px dashed #f7b21f;
+}
+
+.bot-box {
+    grid-row: 2/3;
+    grid-column: 5/-1;
+    border-right: none
+}
+
+.card {
+    width: 90px;
+    height: 130px;
+    object-fit: cover;
+}
+
+.card-anim {
+    animation: throw .35s ease-out;
+}
+
+@keyframes throw {
+    from {
+        transform: translate(0, -250%) rotate(360deg);
+    }
+    to {
+        transform: translate(0, 0) rotate(0);
+    }
+}
+
+.card:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.btn {
+    border: none;
+    /* background-color: #d4d4d4; */
+    background: none;
+    border: 2px dotted #f7b21f;
+    color: #f7b21f;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 7px;
+    text-shadow: 3px 5px 1px var(--text-color);
+    cursor: pointer;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, .2);
+    transition: transform .3s, box-shadow .3s;
+}
+
+.btn:not(:last-child) {
+    margin-right: 2rem;
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-3px);
+}
+
+.player-box {
+    display: grid;
+    grid-template-rows: 1fr 40%;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    color: #ffb142;
+    column-gap: 1rem;
+    padding: 2rem 3rem;
+}
+
+.bot-text {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    font-size: 1.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.player-text {
+    font-size: 1.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.fa-robot {
+    font-size: 4rem;
+    padding: 1rem;
+}
+
+.fa-user-tie {
+    font-size: 4.5rem;
+    padding: 1rem;
+}
+
+.score {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.result-box {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    font-size: 5rem;
+    color: #edf3f8;
+    text-align: center;
+    z-index: 20;
+    transition: opacity .3s, visibility .3s;
+}
+
+.result {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-left: 2rem;
+}
+
+.win {
+    background-color: #0e9e32;
+    box-shadow: 0 0 1px 10px #0ac71a;
+}
+
+.lose {
+    background-color: #f75050;
+    box-shadow: 0 0 1px 10px #b33434;
+}
+
+.draw {
+    background-color: #2e86de;
+    box-shadow: 0 0 1px 10px #54a0ff;
+}
+
+.hide {
+    opacity: 0;
+    visibility: hidden;
+}
